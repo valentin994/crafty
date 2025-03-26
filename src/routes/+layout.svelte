@@ -9,13 +9,13 @@
 	setContext('user', user);
 	onMount(async () => {
 		if (data) {
-			const response = await fetch('http://localhost:8000/test', { credentials: 'include' });
+			const response = await fetch('http://localhost:8000/test');
 			const responseData = await response.json();
 			if (responseData) {
 				// @ts-ignore
-				const fetchUser = await fetch(`http://localhost:8000/user/${responseData.email}`);
+				const fetchUser = await fetch(`http://localhost:8000/users/${responseData.email}`);
 				if (fetchUser.status === 404) {
-					const createUser = await fetch(`http://localhost:8000/user/`, {
+					const createUser = await fetch(`http://localhost:8000/users/`, {
 						method: 'POST',
 						headers: {
 							'Content-Type': 'application/json'

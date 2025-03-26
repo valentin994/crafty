@@ -28,7 +28,7 @@
 		if (updateFirstName === $ctx.firstName && updateLastName === ctx.lastName) {
 			return;
 		}
-		const request = await fetch(`http://localhost:8000/user/${$ctx.email}`, {
+		const request = await fetch(`http://localhost:8000/users/${$ctx.email}`, {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json'
